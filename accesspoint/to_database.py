@@ -6,8 +6,9 @@ import time
 LOCATION = "LOCATION_A"
 AP_NUMBER = "0"
 SERVER_IP = "127.0.0.1"
-SERVER_PORT = "1337"
-SERVER_USER = "mariadb"
+SERVER_DB = "db_raw_data"
+SERVER_PORT = "3306"
+SERVER_USER = "root"
 SERVER_PASS = "root"
 
 
@@ -17,10 +18,11 @@ def connect():
     retry = True
     while retry: 
         try:    
-            con = mariadb.connect(host=SERVER_IP,port=SERVER_PORT,user=SERVER_USER, password=SERVER_PASS, database='data')
+            con = mariadb.connect(host=SERVER_IP,port=SERVER_PORT,user=SERVER_USER, password=SERVER_PASS, database=SERVER_DB)
             retry = False
+            print("Connected!\r\n")
         except:
-            print("Retrying to connect to " + SERVER_IP + ":" +  SERVER_PORT + " as " + SERVER_PASS + " in 5 seconds...")
+            print("Retrying to connect to " + SERVER_IP + " as " + SERVER_PASS + " in 5 seconds...")
             retry = True
             time.sleep(5)
     return con
@@ -39,14 +41,14 @@ def sendToDB(data):
     print("Time: " + _time)
     print("Strength: " + strength)
     print("Source: " + source)
-    print(" ")
+    
 
     try:
         cursor = connection.cursor()
         cursor.execute("INSERT INTO captures (location,ap,time,strength,source) VALUES (%s,%s)", (LOCATION, AP_NUMBER,_time,strength,source))
     except:
         print("Failed to insert into DB!")
-
+    print(" ")
                 
         
 
