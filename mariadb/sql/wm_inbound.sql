@@ -15,17 +15,31 @@ CREATE TABLE 'sessions' (
 )
 
 CREATE TABLE 'data' (
-    /*PK id*/
     dataID INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    /*sigStrength*/
     sigStrength FLOAT NOT NULL,
-    /*sourceMAC*/
     sourceMAC VARCHAR(17),
-    /*FK AP_ID*/
-    apID INT,
+    apID INT NOT NULL,
+    time DATETIME(),
     PRIMARY KEY(dataID)
 )
 
+CREATE TABLE 'location' (
+   locationID INT UNSIGNED NOT NULL AUTO_INCREMENT,
+   sigStrength FLOAT NOT NULL,
+   name VARCHAR(32) NOT NULL,
+   PRIMARY KEY(locationID)
+)
 
-/*FK sessionID*/
-    sessionID INT
+CREATE TABLE 'ap' (
+   apID INT UNSIGNED NOT NULL AUTO_INCREMENT,
+   locationID INT NOT NULL, 
+   PRIMARY KEY(apID)
+)
+
+CREATE TABLE 'distance' (
+   distanceID INT UNSIGNED NOT NULL AUTO_INCREMENT,
+   fromApID INT NOT NULL,
+   toApID INT NOT NULL,
+   distance FLOAT NOT NULL,
+   PRIMARY KEY(distanceID)
+)
