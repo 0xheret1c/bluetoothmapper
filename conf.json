@@ -4,15 +4,15 @@
         "number": "0",
         "ip": "192.168.0.2"
     },
-    "db_server": 
+    "db": 
     {
         "ip": "192.168.0.2",
         "port": "1337",
         "user": "root",
         "pass": "root",
-        "db_name": "rawdb"
+        "db_name": "wminbound"
     },
-    "ap_control": 
+    "ap_ctrl": 
     {
         "ip": "192.168.0.2",
         "port": "1337"

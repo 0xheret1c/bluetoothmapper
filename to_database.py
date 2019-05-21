@@ -55,10 +55,10 @@ def sendToDB(data):
 
     try:
         cursor = connection.cursor()
-        cursor.execute("INSERT INTO captures (location,ap,time,strength,source) VALUES (%s,%s)", (LOCATION, AP_NUMBER,_time,strength,source))
+        cursor.execute("INSERT INTO data (apID,sessionID,sigStrength,strength,sourceMAC,time) VALUES (%s,%s,%s,%s,%s)", (AP_NUMBER, CURRENT_SESSION, strength, source, _time))
     except:
-        print("Failed to insert into DB!")
-    print(" ")
+        print("Failed to insert into DB!\r\n")
+
                 
         
 
