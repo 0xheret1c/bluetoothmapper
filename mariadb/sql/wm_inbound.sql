@@ -36,10 +36,9 @@ CREATE TABLE IF NOT EXISTS setup (
 );
 
 CREATE TABLE ap_to_setup (
-    ap_to_setupID INT UNSIGNED NOT NULL AUTO_INCREMENT,
     apID    INT UNSIGNED NOT NULL,
     setupID INT UNSIGNED NOT NULL,
-    PRIMARY KEY(ap_to_setupID),
+    PRIMARY KEY(apID,setupID),
     FOREIGN KEY(apID) REFERENCES ap(apID),
     FOREIGN KEY(setupID) REFERENCES setup(setupID)
 );
