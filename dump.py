@@ -8,6 +8,6 @@ with open("./conf.json", 'r') as f:
 
 DEV = config["ap"]["network_monitor_dev"]
 
-os.system("tcpdump -i " + DEV + " -vv -n -e -s 256 type mgt subtype probe-req | ../python/to_database.py")
+os.system("tcpdump -i " + DEV + " -vv -n -e -s 256 type mgt subtype probe-req | ../to_database.py")
 
 
