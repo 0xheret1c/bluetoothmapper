@@ -1,0 +1,51 @@
+<!-- Titel mit Suchleiste +  Button -->
+<div class="container-fluid bg-success" id="titel">
+
+          <img src="https://image.flaticon.com/icons/png/512/34/34202.png" id="lupe" width="38px" height="38px">
+          <input  type="text" class="form-control" id="eingabe" placeholder="Wen suchst du? (MAC-Adresse)...">
+          <button type="button" class="btn btn-dark" id="suche"> Suche </button>
+          <div id="uhrzeit"></div>
+
+</div>
+
+<!-- Filter und Raster (Karte) -->
+<div class="container-fluid">
+  <div class="row">
+    
+    <!-- Filter -->
+      <div class="col-3 bg-secondary" id="filter">
+          <div class="dropdown">
+              <button class="btn btn-dark dropdown-toggle" type="button" id="mac" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                MAC-Adressen
+              </button>
+              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="#">MAC-Adresse1</a>
+                <a class="dropdown-item" href="#">MAC-Adresse2</a>
+                <a class="dropdown-item" href="#">MAC-Adresse3</a>
+              </div>
+            </div>
+
+            <div class="dropdown">
+                <button class="btn btn-dark dropdown-toggle" type="button" id="mac" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Auswahl-Filter
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="#">Beispiel</a>
+                  <a class="dropdown-item" href="#">Beispiel</a>
+                  <a class="dropdown-item" href="#">Beispiel</a>
+                </div>
+              </div>
+
+      </div>
+
+    <!-- Raster/Koordinatensystem/Karte -->
+      <div class="col-9 bg-light" id="karte">
+          <div class="row">
+            <div id="begrenzung">
+              <div id="kugel"></div>
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Graph-paper.svg/2000px-Graph-paper.svg.png" id="rasterbild1" width="100%" height="100%">
+            </div>
+      </div>
+
+  </div>
+</div>

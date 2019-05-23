@@ -1,0 +1,49 @@
+#test{
+    background-color: red;
+}
+#titel{
+    height: 80px;
+    padding-top:20px;
+    padding-left: 15px;
+}
+
+#filter{
+    height: 545px;
+}
+
+#karte{
+    height: 545px;
+}
+
+#eingabe{
+    margin-left: 15px;
+    width: 275px;
+    float:left;
+}
+
+#lupe{
+    float: left;
+}
+
+#begrenzung{
+    overflow:hidden;
+    height: 545px;
+}
+#mac{
+    width: 100%;
+    margin-top: 10px;
+}
+
+#kugel{
+    Position: absolute;
+    text-align: center;
+    border: 10px solid black;
+    border-radius: 100px;
+    top: 200px;
+    left: 300px;
+    width: 50px;
+    height: 50px;
+    background: red;
+    padding: 20px;
+    color: white;
+}
