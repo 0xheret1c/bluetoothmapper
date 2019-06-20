@@ -9,10 +9,10 @@
     },
     "db": 
     {
-        "ip": "192.168.0.2",
-        "port": "1337",
-        "user": "root",
-        "pass": "root",
+        "ip": "192.168.1.200",
+        "port": "3306",
+        "user": "misterdump",
+        "pass": "misterdump",
         "db_name": "wminbound"
     },
     "ap_ctrl": 

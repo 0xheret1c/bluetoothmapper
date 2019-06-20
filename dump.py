@@ -16,7 +16,7 @@ def sniffWifi():
         os.system(command)
 
 def sniffBluetooth():
-        command = "tcpdump -i " + BT_DEV  #| ../to_database.py"
+        command = "tcpdump -vv -i " + BT_DEV  #| ../to_database.py"
         os.system(command)
 
 
