@@ -10,21 +10,21 @@ DEV = config["ap"]["network_monitor_dev"]
 
 #Turn monitor-mode for DEVICE on.
 def on():
-	os.system("ifconfig" + DEV + "down")
-	os.system("iwconfig" + DEV + "mode monitor")
-	os.system("ifconfig" + DEV + "up")
+	os.system("ifconfig " + DEV + " down")
+	os.system("iwconfig " + DEV + " mode monitor")
+	os.system("ifconfig " + DEV + " up")
 
 
 #Turn monitor-mode for DEVICE off.
 def off():
-	os.system("ifconfig" + DEV + "down")
-	os.system("iwconfig" + DEV + "mode managed")
-	os.system("ifconfig" + DEV + "up")
+	os.system("ifconfig " + DEV + " down")
+	os.system("iwconfig " + DEV + " mode managed")
+	os.system("ifconfig " + DEV + " up")
 
 
-if (sys.argv[0] == "on"):
+if (sys.argv[1] == "on"):
 	on()
-elif (sys.argv[0] == "off"):
+elif (sys.argv[1] == "off"):
 	off()
 
 

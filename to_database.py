@@ -9,31 +9,28 @@ with open("./conf.json", 'r') as f:
 
 AP_NUMBER = config["ap"]["number"]
 
-CURRENT_SESSION = "0"
-LOCATION = "LOCATION_A"
-
-
-
+CURRENT_SESSION = "1"
 
 def sendToDB(data):
-    splt = data.split()
-    if(len(splt) <= 0):
+
+    splt = data.split(' ')
+    #print(splt)
+    if(len(splt) <= 1):
         return
+    #print(data)
+
+# 20:29:43.944515 39068888088us tsft 1.0 Mb/s 2417 MHz 11b -49dBm signal -49dBm signal antenna 0 0us #BSSID:ff:ff:ff:ff:ff:ff DA:ff:ff:ff:ff:ff:ff SA:ec:55:f9:0d:cf:86 Probe Request () [1.0 2.0 5.5 11.0 Mbit]
+
+    _time = str(splt[0])
+    #print("Time: " + _time)
+    strength = str(splt[8]).replace("dBm","")
+    #print("Strength: " + strength)
+    source = str(splt[17].replace("SA:",""))
+    #print("Source: " + source)
     
-    _time = splt[0]
-    strength = splt[6]
-    source = splt[13].replace("SA:","")
-    print("Time: " + _time)
-    print("Strength: " + strength)
-    print("Source: " + source)
-    
-    query = "INSERT INTO data (apID,sessionID,sigStrength,strength,sourceMAC,time) VALUES (" + AP_NUMBER + "," +CURRENT_SESSION + "," + strength + "," + source,_time + ")"
-    os.system("./exec_sql_query.py \"" + query + "\"")
+    quer = "INSERT INTO data (apID,sessionID,sigStrength,strength,sourceMAC,time) VALUES (\'" + AP_NUMBER + "\',\'" + CURRENT_SESSION + "\',\'" + strength + "\',\'" + source+ "\',\'"+_time + "\')"
+    os.system("./exec_sql_query.py \"" + quer + "\"")
 
-
-
-                
-        
 
 
 while True:

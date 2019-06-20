@@ -23,7 +23,7 @@ def connect():
         try:    
             con = mariadb.connect(host=SERVER_IP,port=SERVER_PORT,user=SERVER_USER, password=SERVER_PASS, database=SERVER_DB)
             retry = False
-            print("Connected!\r\n")
+            #print("Connected!\r\n")
         except:
             print("Retrying to connect to " + SERVER_IP + " as " + SERVER_PASS + " in 5 seconds...")
             retry = True
@@ -31,18 +31,16 @@ def connect():
     return con
 
 
-def exec(query):
+def exec_query(query):
     
     try:
         connection = connect()
         cursor = connection.cursor()
-        cursor.execute(query)
+        cursor.execute(str(query))
+        print("Executed: " + str(query))
     except:
-        print("Failed to insert into DB!\r\n")
+        print("Failed to insert into DB!\n Query: "+query+"\r\n")
 
 
-if(len(sys.argv[0] == 1)):
-
-    exec(sys.argv[0])
-else:
-    print("Too much, or no arguments given!")
+if(len(sys.argv)== 2):
+    exec_query(sys.argv[1])

@@ -12,28 +12,25 @@ BT_DEV = config["ap"]["bluetooth_dev"]
 
 
 def sniffWifi():
-        command = "tcpdump -i " + WIFI_DEV + " -vv -n -e -s 256 type mgt subtype probe-req | ../to_database.py"
+        command = "tcpdump -i " + WIFI_DEV + " -vv -n -e -s 256 type mgt subtype probe-req | ./to_database.py"
         os.system(command)
 
 def sniffBluetooth():
         command = "tcpdump -vv -i " + BT_DEV  #| ../to_database.py"
         os.system(command)
 
-
-argv = sys.argv
-argc = len(argv)
-
-os.system("./printlogo.py")
+sniffWifi()
+#os.system("./printlogo.py")
 
 # Dump depending on arg. Default is bluetooth
-if(argc > 1):
-    print("Too many arguments!")
-    exit()
-elif(argc == 1):
-    if(argv[0] == "w" or argv[0] == "wifi"):
-        sniffWifi()
-    else:
-        sniffBluetooth()
+# if(argc > 1):
+#     print("Too many arguments!")
+#     exit()
+# elif(argc == 1):
+#     if(argv[0] == "w" or argv[0] == "wifi"):
+#         sniffWifi()
+#     else:
+#         sniffBluetooth()
 
 
 

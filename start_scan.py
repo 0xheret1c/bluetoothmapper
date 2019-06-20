@@ -5,5 +5,5 @@ import subprocess
 
 #Export env
 os.system("./monitormode.py on")
-os.system("./dump.py")
+os.system("./dump.py -wifi")
 os.system("./monitormode.py off")
