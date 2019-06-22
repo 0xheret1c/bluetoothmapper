@@ -28,7 +28,7 @@ def sendToDB(data):
     # Better option would be to parse the libcap format with its library.
     
     _time = str(splt[0])                       # First part of the string is the time 
-    strength = str(splt[8]).replace("dBm","")  # 8th part is the signal-strength. Remove dBm so we get a clean integer.
+    strength = str(splt[8]).replace("dBm","").replace("-","")  # 8th part is the signal-strength. Remove dBm so we get a clean integer.
     source = str(splt[17].replace("SA:",""))   # 17th. part is the source address. Remove SA: so only the address stays.
 
     # Add single quotation marks here for better readabillity
