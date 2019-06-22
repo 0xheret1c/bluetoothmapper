@@ -1,10 +1,11 @@
 #!/usr/bin/python2
 
-import mysql.connector as mariadb
-import sys
-import time
-import json
+import mysql.connector as mariadb # To execute sql-querys
+import sys                        # To read arguments
+import time                       # To pause the program with time.sleep on failed connection attempts.
+import json                       # To read the config.
 
+# Read the config
 with open("./conf.json", 'r') as f:
     config = json.load(f)
 
@@ -23,7 +24,6 @@ def connect():
         try:    
             con = mariadb.connect(host=SERVER_IP,port=SERVER_PORT,user=SERVER_USER, password=SERVER_PASS, database=SERVER_DB)
             retry = False
-            #print("Connected!\r\n")
         except:
             print("Retrying to connect to " + SERVER_IP + " as " + SERVER_PASS + " in 5 seconds...")
             retry = True
